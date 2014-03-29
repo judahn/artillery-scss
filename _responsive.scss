@@ -1,0 +1,123 @@
+/*
+ *  RESPONSIVE
+ */
+
+// Breakpoints
+$pager:                     320px;
+$phone:                     480px;
+$tablet_sm:                 600px;
+$tablet:                    768px;
+$laptop:                    992px;
+$desktop:                   1200px;
+$monitor:                   1600px;
+$gutter:                    30px;
+
+$small_tablet_portrait:     600px;
+$small_tablet_landscape:    800px;
+$mobile_portrait:           $pager;
+$mobile_landscape:          $phone;
+$tablet_portrait:           $tablet;
+$tablet_landscape:          $laptop;
+
+
+/*
+ *  MIXINS
+ */
+
+// min breakpoint
+@mixin min($breakpoint, $media: all) {
+    @media only #{$media} and (min-width: $breakpoint) {
+        @content;
+    }
+}
+// max breakpoint
+@mixin max($breakpoint, $media: all) {
+    @media only #{$media} and (max-width: $breakpoint - 1) {
+        @content;
+    }
+}
+// min & max breakpoints
+@mixin between($breakpoint, $breakpoint2, $media: all) {
+    @media only #{$media} and (min-width: $breakpoint) and (max-width: $breakpoint2 - 1) {
+        @content;
+    }
+}
+
+
+/*
+ *  SHORTCUTS
+ */
+
+@mixin pager {                      @include max(        $mobile_portrait)                                   {@content;}}    // > 320
+@mixin phone {                      @include between(    $mobile_portrait,       $mobile_landscape)          {@content;}}    // > 480
+@mixin tablet {                     @include between(    $mobile_landscape,      $tablet_portrait)           {@content;}}    // 480 -> 768
+@mixin laptop {                     @include between(    $tablet_portrait,       $laptop)                    {@content;}}    // 768 -> 992
+@mixin desktop {                    @include between(    $laptop,                $desktop)                   {@content;}}    // 992 -> 1200
+@mixin monitor {                    @include between(    $desktop,               $monitor)                   {@content;}}    // 1200 -> 1600
+@mixin infinity {                   @include min(        $monitor)                                           {@content;}}    // 1600 -> infinity
+
+@mixin mobile_portrait {            @include max(        $mobile_portrait)                                   {@content;}}    // > 320
+@mixin mobile_landscape {           @include between(    $mobile_portrait,       $mobile_landscape)          {@content;}}    // > 480
+@mixin tablet_portrait {            @include between(    $mobile_landscape,      $tablet_portrait)           {@content;}}    // 480 -> 768
+@mixin tablet_landscape {           @include between(    $tablet_portrait,       $tablet_landscape)          {@content;}}    // 768 -> 1024
+@mixin small_tablet_portrait {      @include between(    $mobile_landscape,      $small_tablet_portrait)     {@content;}}    // 600 -> 768
+@mixin small_tablet_landscape {     @include between(    $small_tablet_portrait, $small_tablet_landscape)    {@content;}}    // 768 -> 1024
+
+
+/*
+ *  MIN / MAX
+ */
+
+// Pager
+@mixin min_pager {                  @include min($pager) {@content;}}
+@mixin max_pager {                  @include max($pager) {@content;}}
+
+// Phone
+@mixin min_phone {                  @include min($phone) {@content;}}
+@mixin max_phone {                  @include max($phone) {@content;}}
+
+// Tablet
+@mixin min_tablet {                 @include min($tablet) {@content;}}
+@mixin max_tablet {                 @include max($tablet) {@content;}}
+
+// Tablet Small
+@mixin min_tablet_sm {              @include min($tablet_sm) {@content;}}
+@mixin max_tablet_sm {              @include max($tablet_sm) {@content;}}
+
+// Laptop
+@mixin min_laptop {                 @include min($laptop) {@content;}}
+@mixin max_laptop {                 @include max($laptop) {@content;}}
+
+// Desktop
+@mixin min_desktop {                @include min($desktop) {@content;}}
+@mixin max_desktop {                @include max($desktop) {@content;}}
+
+// Monitor
+@mixin min_monitor {                @include min($monitor) {@content;}}
+@mixin max_monitor {                @include max($monitor) {@content;}}
+
+
+// Mobile portrait
+@mixin min_phone_portrait {         @include min($mobile_portrait) {@content;}}
+@mixin max_phone_portrait {         @include max($mobile_portrait) {@content;}}
+
+// MObile landscape:
+@mixin min_phone_landscape {        @include min($mobile_landscape) {@content;}}
+@mixin max_phone_landscape {        @include max($mobile_landscape) {@content;}}
+
+// Tablet portrait:
+@mixin min_tablet_portrait {        @include min($tablet_portrait) {@content;}}
+@mixin max_tablet_portrait {        @include max($tablet_portrait) {@content;}}
+
+// Tablet landscape:
+@mixin min_tablet_landscape {       @include min($tablet_landscape) {@content;}}
+@mixin max_tablet_landscape {       @include max($tablet_landscape) {@content;}}
+
+// Small tablet portrait:
+@mixin min_small_tablet_portrait {  @include min($small_tablet_portrait) {@content;}}
+@mixin max_small_tablet_portrait {  @include max($small_tablet_portrait) {@content;}}
+
+// Small tablet landscape:
+@mixin min_small_tablet_landscape { @include min($small_tablet_landscape) {@content;}}
+@mixin max_small_tablet_landscape { @include max($small_tablet_landscape) {@content;}}
+
