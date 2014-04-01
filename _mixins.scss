@@ -46,8 +46,6 @@
     @include box-shadow(0 0 0 rgba(black, 0));
 }
 
-@import "responsive";
-
 /*
  *  Mixins
  */
@@ -129,6 +127,9 @@
     width: 100%;
     height: auto;
 }
+.img-responsive {
+    width: 100%;
+}
 
 .pos-abs{
     position: absolute;
@@ -144,6 +145,6 @@
     text-align: left;
 }
 .text-center {
-    text-align: left;
+    text-align: center;
 }
 
