@@ -50,8 +50,8 @@
  *  Mixins
  */
 
-// add styles to all header tags (h1 - h6)
-@mixin hs {
+// add styles to all header tags (h1 - h6)r
+@mixin headers {
     @for $i from 1 through 6 {
         h#{$i} {
           @content;
