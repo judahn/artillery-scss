@@ -50,6 +50,14 @@
  *  Mixins
  */
 
+// add styles to all header tags (h1 - h6)
+@mixin hs {
+    @for $i from 1 through 6 {
+        h#{$i} {
+          @content;
+        }
+    }
+}
 
 @mixin center-vertically($h1, $h2) {
     position: fixed;
