@@ -17,3 +17,7 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     vertical-align: top;
 }
+
+a:hover, a:focus {
+	text-decoration: none;
+}
